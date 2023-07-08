@@ -18,6 +18,8 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchBookAction } from "./pages/Books/bookAction";
 import { EditBookForm } from "./components/book-com/EditBookForm";
+import { BookLanding } from "./pages/Books/BookLanding";
+import { fetchBurrowAction } from "./pages/BurrowHistory/BurrowAction";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,6 +27,7 @@ function App() {
   //fetch book because its is rendering on reload
   useEffect(() => {
     dispatch(fetchBookAction());
+    dispatch(fetchBurrowAction());
   }, [dispatch]);
 
   return (
@@ -33,6 +36,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/new-admin" element={<Signup />} />
+        <Route path="/book/:_id" element={<BookLanding />} />
 
         {/* // private routes */}
 

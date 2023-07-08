@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-
+import burrowReducer from "./pages/BurrowHistory/BurrowSlice.js";
 import userReducer from "./pages/signup-signin/userSlice";
 import bookReducer from "./pages/Books/bookSlice.js";
 import { persistStore, persistReducer } from "redux-persist";
@@ -15,6 +15,7 @@ const store = configureStore({
   reducer: {
     userInfo: persistedUserReducer,
     bookInfo: bookReducer,
+    burrowInfo: burrowReducer,
   },
 });
 
