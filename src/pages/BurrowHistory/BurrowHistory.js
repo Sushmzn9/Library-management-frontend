@@ -5,8 +5,6 @@ import { Button, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export const BurrowHistory = () => {
-  const { books } = useSelector((state) => state.bookInfo);
-  const { user } = useSelector((state) => state.userInfo);
   const { burrow } = useSelector((state) => state.burrowInfo);
 
   return (
@@ -18,8 +16,9 @@ export const BurrowHistory = () => {
             <th>thumbnail</th>
             <th>Book Title</th>
             <th>Burrowed by Name</th>
+            <th> Burrow Date</th>
             <th>Return Date</th>
-            <th>Return Now</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -32,6 +31,7 @@ export const BurrowHistory = () => {
               </td>
               <td>{item.bookName}</td>
               <td>{item.userName}</td>
+              <td>{item.userName}</td>
               <td>{item.dueDate.slice(0, 10)}</td>
               <td>
                 {burrow?._id ? (
@@ -39,7 +39,7 @@ export const BurrowHistory = () => {
                     <Button variant="danger">Return</Button>
                   </Link>
                 ) : (
-                  <Button variant="danger" disabled>
+                  <Button variant="warning" disabled>
                     Return
                   </Button>
                 )}

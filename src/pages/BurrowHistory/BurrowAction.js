@@ -1,6 +1,7 @@
 import { fetchBurrow, postBurrow } from "../../helper/axios";
 import { toast } from "react-toastify";
 import { setBurrow } from "./BurrowSlice";
+import { fetchBookAction } from "../Books/bookAction.js";
 
 export const addBurrowAction = (obj) => async (dispatch) => {
   const { status, message } = await postBurrow(obj);
@@ -8,7 +9,7 @@ export const addBurrowAction = (obj) => async (dispatch) => {
 
   if (status === "success") {
     //need rto fetch data
-
+    dispatch(fetchBookAction());
     dispatch(fetchBurrowAction());
   }
 };
