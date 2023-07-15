@@ -20,6 +20,7 @@ import { fetchBookAction } from "./pages/Books/bookAction";
 import { EditBookForm } from "./components/book-com/EditBookForm";
 import { BookLanding } from "./pages/Books/BookLanding";
 import { fetchBurrowAction } from "./pages/BurrowHistory/BurrowAction";
+import { fetchReviewAction } from "./pages/Review/reviewAction";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ function App() {
   useEffect(() => {
     dispatch(fetchBookAction());
     dispatch(fetchBurrowAction());
+    dispatch(fetchReviewAction());
   }, [dispatch]);
 
   return (

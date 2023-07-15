@@ -4,7 +4,8 @@ import userReducer from "./pages/signup-signin/userSlice";
 import bookReducer from "./pages/Books/bookSlice.js";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
-
+import systemReducer from "./system/systemSlice.js";
+import reviewReducer from "./pages/Review/reviewSlice.js";
 const userPresistConfig = {
   key: "userInfo",
   storage,
@@ -16,6 +17,8 @@ const store = configureStore({
     userInfo: persistedUserReducer,
     bookInfo: bookReducer,
     burrowInfo: burrowReducer,
+    system: systemReducer,
+    reviewInfo: reviewReducer,
   },
 });
 
