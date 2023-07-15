@@ -21,6 +21,7 @@ import { EditBookForm } from "./components/book-com/EditBookForm";
 import { BookLanding } from "./pages/Books/BookLanding";
 import { fetchBurrowAction } from "./pages/BurrowHistory/BurrowAction";
 import { fetchReviewAction } from "./pages/Review/reviewAction";
+import Reviews from "./pages/Review/Reviews";
 
 function App() {
   const dispatch = useDispatch();
@@ -81,6 +82,14 @@ function App() {
           element={
             <PrivateRoute>
               <EditBookForm />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/reviews"
+          element={
+            <PrivateRoute>
+              <Reviews />
             </PrivateRoute>
           }
         />

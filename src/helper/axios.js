@@ -174,6 +174,23 @@ export const postReview = async (obj) => {
 export const getReviews = async () => {
   try {
     const { data } = await axios.get(reviewApi);
+
+    return data;
+  } catch (error) {
+    return {
+      status: "error",
+      message: error.message,
+    };
+  }
+};
+export const updateReviews = async (obj) => {
+  try {
+    const { data } = await axios.patch(reviewApi, obj, {
+      headers: {
+        Authorization: getUserIdFromLocalStorage(),
+      },
+    });
+
     return data;
   } catch (error) {
     return {

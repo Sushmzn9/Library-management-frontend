@@ -7,8 +7,8 @@ const reviewSlice = createSlice({
   name: "review",
   initialState,
   reducers: {
-    setBurrow: (state, { payload }) => {
-      state.review = payload;
+    setReviews: (state, { payload }) => {
+      state.reviews = payload;
     },
   },
 });
