@@ -34,9 +34,9 @@ export const Stars = ({ num }) => {
 
   return (
     <div className="fs-3">
-      {fs.map((item) => item)}
+      {fs?.map((item) => item)}
       {hasDecimal && <BiSolidStarHalf className="text-warning " />}
-      {es.map((item) => item)}
+      {es?.map((item) => item)}
     </div>
   );
 };
