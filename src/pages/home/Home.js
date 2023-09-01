@@ -30,7 +30,7 @@ const Home = () => {
           <Row>
             <Col>
               <div className="d-flex justify-content-between">
-                <div className="left">{display.length} books found</div>
+                <div className="left">{display?.length} books found</div>
                 <div className="right">
                   <Form.Control
                     onChange={handleOnSearch}
@@ -43,7 +43,7 @@ const Home = () => {
                 className="book-list d-flex justify-content-center
  flex-wrap gap-4 mt-5"
               >
-                {display?.map((item) => (
+                {display.map((item) => (
                   <Link to={`/book/${item._id}`}>
                     <CustomCard key={item._id} {...item} />
                   </Link>

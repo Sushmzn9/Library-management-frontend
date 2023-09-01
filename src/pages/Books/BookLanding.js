@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Footer } from "../../components/layout/Footer";
 import { Header } from "../../components/layout/Header";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -17,10 +17,11 @@ export const BookLanding = () => {
 
   const { thumbnail, title, author, year, summary, isAvailable, dueDate } =
     books.find((item) => item._id === _id) || {};
-
-  if (!title) {
-    navigate("/");
-  }
+  useEffect(() => {
+    if (!title) {
+      navigate("/");
+    }
+  }, [navigate, title]);
 
   const handleOnBurrow = () => {
     if (window.confirm("Are you sure you want to burrow this book?")) {
@@ -40,7 +41,7 @@ export const BookLanding = () => {
   );
 
   const star =
-    reviewList.reduce((acc, item) => acc + +item.star, 0) / reviewList?.length;
+    reviewList?.reduce((acc, item) => acc + +item.star, 0) / reviewList?.length;
   console.log(reviewList, star);
   return (
     <div>

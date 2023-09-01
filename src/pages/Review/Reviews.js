@@ -36,7 +36,7 @@ const Reviews = () => {
           </tr>
         </thead>
         <tbody>
-          {reviews.map((r, i) => (
+          {reviews?.map((r, i) => (
             <tr key={i}>
               <td>{i + 1}</td>
               <td>
